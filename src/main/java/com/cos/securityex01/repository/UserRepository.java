@@ -19,6 +19,6 @@ public interface UserRepository extends JpaRepository<User, Integer>{ // 기본 
     // User find마음대로();
 	
 //	@Query(value="select * from user where email=1?",nativeQuery = true)
-	// SELECT * FROM user WHERE email = ?1
-	Optional<User> findByEmail(String email);
+	// SELECT * FROM user WHERE provider = ?1 and providerId = ?2
+	Optional<User> findByProviderAndProviderId(String provider, String providerId);
 }

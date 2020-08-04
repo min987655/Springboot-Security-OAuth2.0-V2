@@ -53,7 +53,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 		}
 		
 		Optional<User> userOptional = 
-				userRepository.findByEmail(oAuth2UserInfo.getEmail());
+				userRepository.findByProviderAndProviderId(oAuth2UserInfo.getProvider(), oAuth2UserInfo.getProviderId());
 		
 		User user;
 		if (userOptional.isPresent()) {
