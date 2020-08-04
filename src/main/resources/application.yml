@@ -1,0 +1,40 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Seoul
+    username: cos
+    password: cos1234
+    
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: mustache
+      
+  jpa:
+    hibernate:
+      ddl-auto: update #create update none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #내가 적은 그대로 테이블 속성명으로 넣어줌 
+    show-sql: true
+    
+  security:
+    oauth2:
+      client:
+        registration:
+          google: # /oauth2/authorization/google/ 이 주소를 동작하게 한다
+            client-id: 338926022643-5r1ofl090mg2sv84ttkh7bbie0gkslq0.apps.googleusercontent.com
+            client-secret: nafjczrC-QSeDmhIExjCnQJT
+            scope:
+            - email
+            - profile
+          
+    
